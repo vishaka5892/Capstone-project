@@ -9,7 +9,7 @@ class MenuViewTest(TestCase):
         self.menu_item2 = Menu.objects.create(title="Pizza", price = 8, inventory= 20)
         
     def test_getall(self):
-        response = self.client.get('/restaurant/menu/items/')
+        response = self.client.get('/restaurant/menu/')
         menu_items = Menu.objects.all()
         serializer = MenuSerializer(menu_items, many=True)
         self.assertEqual(response.data, serializer.data)
